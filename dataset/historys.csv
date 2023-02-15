@@ -1,0 +1,3 @@
+History_id,Book_id,Borrower_id,Date_Returned,Date_Borrowed,created_at,updated_at
+1,4,1,3/30/2022 4:53,3/1/2022 4:52,3/30/2022 4:53,3/30/2022 4:53
+2,1,1,3/30/2022 4:59,3/30/2022 4:51,3/30/2022 4:59,3/30/2022 4:59
