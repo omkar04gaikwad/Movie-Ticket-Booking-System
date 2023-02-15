@@ -19,7 +19,7 @@ The system is designed to be extendable, allowing for easy future additions such
 
 The Library Management System (LMS) utilizes a microservices architecture where each core function of the application is isolated into separate services. Below is the diagram that illustrates the architecture:
 
-![Architecture Diagram](https://github.com/omkar04gaikwad/Booknest-Library_Management_system/resources/architecture.png)
+![Architecture Diagram](resources/architecture.png)
 
 ### System Overview:
 
