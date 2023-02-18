@@ -4,6 +4,7 @@ from sqlalchemy.orm import relationship, sessionmaker
 import pandas as pd
 from datetime import datetime, timedelta
 import random
+from passlib.hash import bcrypt as passlib_bcrypt
 
 # Define the SQLite database file
 DATABASE_URL = "sqlite:///movie_booking.db"
@@ -69,15 +70,7 @@ session = Session()
 
 print("Database and tables created successfully!")
 
-# Populate Users table
-users = [
-    User(name="John Doe", email="john@example.com", password="password123"),
-    User(name="Jane Smith", email="jane@example.com", password="securepass"),
-    User(name="Bob Johnson", email="bob@example.com", password="mypassword")
-]
-session.add_all(users)
-session.commit()
-print("Users table populated.")
+
 
 # Load Kaggle CSV data
 movies_csv = "tmdb_5000_movies.csv"  # Replace with the actual path to your CSV file

@@ -1,9 +1,13 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Boolean
 from sqlalchemy.orm import relationship, declarative_base, sessionmaker
 from sqlalchemy import create_engine
+import os
 
-# Define the SQLite database file (already created)
-DATABASE_URL = "sqlite:///movie_booking.db"
+# Get the absolute path to the project directory
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # This points to 'backend/'
+
+# Construct the absolute path to the database
+DATABASE_URL = f"sqlite:///{os.path.join(BASE_DIR, 'database', 'movie_booking.db')}"
 engine = create_engine(DATABASE_URL, echo=True)
 
 # Define Base
