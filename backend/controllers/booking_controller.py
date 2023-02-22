@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, Form
 from sqlalchemy.orm import Session
 from services.booking_service import BookingService
 from models.model import SessionLocal
+from services.auth_service import get_current_user
 
 router = APIRouter()
 
@@ -15,7 +16,7 @@ def get_db():
 
 @router.post("/")
 def book_seat(
-    user_id: int = Form(...), 
+    user_id: int = Depends(get_current_user),
     showtime_id: int = Form(...), 
     seat_number: str = Form(...), 
     db: Session = Depends(get_db)
