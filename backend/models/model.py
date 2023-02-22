@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Boolean
 from sqlalchemy.orm import relationship, declarative_base, sessionmaker
 from sqlalchemy import create_engine
+from datetime import datetime
 import os
 
 # Get the absolute path to the project directory
@@ -62,3 +63,17 @@ class Booking(Base):
     user = relationship("User")  # Belongs to a user
     showtime = relationship("Showtime")  # Belongs to a showtime
     seat = relationship("Seat")  # Belongs to a seat
+
+class Payment(Base):
+    __tablename__ = 'payments'
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    booking_id = Column(Integer, ForeignKey('bookings.id'), nullable=False)
+    amount = Column(Integer, nullable=False)
+    status = Column(String, default="pending")  # "pending", "success", "failed"
+    payment_time = Column(DateTime, default=datetime.now)
+
+    user = relationship("User")
+    booking = relationship("Booking")
+
