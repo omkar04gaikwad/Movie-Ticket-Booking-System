@@ -1,10 +1,10 @@
-package com.example.webapp;
+package com.moviebooking.movie_booking_backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WebappApplicationTests {
+class MovieBookingBackendApplicationTests {
 
 	@Test
 	void contextLoads() {
