@@ -6,7 +6,16 @@ from controllers.booking_controller import router as booking_router
 from controllers.payment_controller import router as payment_router
 
 # Initialize FastAPI app
-app = FastAPI()
+app = FastAPI(
+    title="Movie Ticket Booking System",
+    description="A simple API for managing movie ticket bookings, payments, and showtimes.",
+    version="1.0.0",
+    contact={
+        "name": "Omkar Rajendra Gaikwad",
+        "email": "omkar04gaikwad@gmail.com"
+    }
+)
+
 
 # Include user controller routes
 app.include_router(user_router, prefix="/users", tags=["Users"])

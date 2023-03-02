@@ -3,7 +3,7 @@ def test_book_seat(client):
     response = client.post(
         "/bookings/",
         headers=headers,
-        data={"showtime_id": 1, "seat_number": "A1"}  # Form data
+        data={"showtime_id": 5,"seat_number": "A1"}#Form data
     )
     assert response.status_code == 200
     assert response.json()["message"] == "Seat A1 booked! Payment required."
