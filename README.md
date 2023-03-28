@@ -118,6 +118,3 @@ The application is deployed on AWS, leveraging services like AWS Lambda, API Gat
 
 
 ---
-
-## Contact
-For more information, contact the project team or refer to the project documentation.
