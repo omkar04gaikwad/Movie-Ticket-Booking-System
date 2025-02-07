@@ -11,9 +11,15 @@ This project is a **Movie Ticket Booking System** built using **FastAPI**. It fo
 - **Deployment**: (Future Expansion - Docker, AWS)
 
 ## System Architecture (Low-Level Design)
-`
-+--------------------+ +--------------------+ +--------------------+ | User Service | ----> | Showtime Service | ----> | Booking Service | +--------------------+ +--------------------+ +--------------------+ | | | +--------------------+ +--------------------+ +--------------------+ | Auth Middleware | | Payment Service | | Database (SQLite) | +--------------------+ +--------------------+ +--------------------+
-`
+```
++--------------------+       +--------------------+       +--------------------+
+|   User Service    | ----> | Showtime Service  | ----> |  Booking Service  |
++--------------------+       +--------------------+       +--------------------+
+          |                              |                           |
++--------------------+       +--------------------+       +--------------------+
+| Auth Middleware  |       | Payment Service  |       | Database (SQLite) |
++--------------------+       +--------------------+       +--------------------+
+```
 
 ### **Component Breakdown**
 1. **User Service**: Handles user registration, login, and authentication.
@@ -25,10 +31,16 @@ This project is a **Movie Ticket Booking System** built using **FastAPI**. It fo
 ---
 
 ## **Database Schema**
-`
-+----------------+ +----------------+ +----------------+ +----------------+ | Users | | Showtimes | | Seats | | Bookings | +----------------+ +----------------+ +----------------+ +----------------+ | id (PK) | | id (PK) | | id (PK) | | id (PK) | | name | | movie_name | | showtime_id |(FK) | user_id (FK) | | email (Unique)| | theater_name | | seat_number | | seat_id (FK) | | password | | city | | status (Bool) | | booking_time | +----------------+ +----------------+ +----------------+ +----------------+
-`
-
+```
++----------------+        +----------------+        +----------------+        +----------------+
+| Users         |        | Showtimes      |        | Seats         |        | Bookings      |
++----------------+        +----------------+        +----------------+        +----------------+
+| id (PK)       |        | id (PK)        |        | id (PK)       |        | id (PK)       |
+| name          |        | movie_name     |        | showtime_id   |(FK)   | user_id (FK)  |
+| email (Unique)|        | theater_name   |        | seat_number   |        | seat_id (FK)  |
+| password      |        | city           |        | status (Bool) |        | booking_time  |
++----------------+        +----------------+        +----------------+        +----------------+
+```
 
 ## **Endpoints Documentation**
 
@@ -70,3 +82,4 @@ python models/model.py  # Creates tables
 uvicorn main:app --reload
 pytest
 ```
+
